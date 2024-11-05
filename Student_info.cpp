@@ -108,12 +108,14 @@ int main()
         stdarr[i].shortage();
         cout<<endl;
     }
-        cout<<"The students who scored 90% and have attendance above 90% are:"<<endl;
+    
+    cout<<"The students who scored 90% and have attendance above 90% are:"<<endl;
     for (int i = 0; i < 10; i++)
     {
         stdarr[i].show90();
         cout<<endl;
     }
+    
     cout<<"The attendance of all students is: "<<endl;
     for (int i = 0; i < 10; i++)
     {
@@ -128,26 +130,25 @@ int main()
         cout<<endl;
     }
     
-        cout<<"The top 5 students are: "<<endl;
-
-        for (int i = 0 ; i < 8 ; i++)
+    cout<<"The top 5 students are: "<<endl;
+    for (int i = 0 ; i < 8 ; i++)
+    {
+        for (int j = i+1 ; j < 9 ; j++)
         {
-            for (int j = i+1 ; j < 9 ; j++)
+            if (stdarr[i].percentage < stdarr[j].percentage)
             {
-                if (stdarr[i].percentage < stdarr[j].percentage)
-                {
-                    sort = stdarr[i];
-                    stdarr[i] = stdarr[j];
-                    stdarr[j] = sort;
-                }
-            }     
-        }
-        for (int i = 0; i < 5; i++) 
-        {
-            if (stdarr[i].percentage <= 100.0)
-            {
-         cout<<stdarr[i].name<<", "<<stdarr[i].rollNo<<", "<<stdarr[i].percentage<<endl;
+                sort = stdarr[i];
+                stdarr[i] = stdarr[j];
+                stdarr[j] = sort;
             }
+        }     
+     }
+    for (int i = 0; i < 5; i++) 
+    {
+        if (stdarr[i].percentage <= 100.0)
+        {
+             cout<<stdarr[i].name<<", "<<stdarr[i].rollNo<<", "<<stdarr[i].percentage<<endl;
         }
+    }
 return 0;
 }
